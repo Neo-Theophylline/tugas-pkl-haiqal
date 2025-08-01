@@ -10,6 +10,6 @@ class user extends Model
 
     public function class()
     {
-        return $this->belongsTo(clas::class, 'id');
+        return $this->belongsTo(clas::class, 'clas_id');
     }
 }

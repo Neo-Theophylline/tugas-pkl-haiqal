@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Clas; // pastikan modelnya benar, bisa juga Class atau Kelas
 
 return new class extends Migration
 {
@@ -25,5 +26,10 @@ return new class extends Migration
     public function down(): void
     {
         //
+    }
+
+    public function create()
+    {
+        
     }
 };

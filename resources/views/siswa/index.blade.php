@@ -10,7 +10,7 @@
 <body>
     <h1>Tugas</h1>
     <div>
-        <table border="1">
+        <table border="1" cellpadding="10" cellspacing="0" width="100%" style="font-size: 15px; ">
             <div>
                 <thead>
                     <tr>
@@ -42,7 +42,7 @@
         </table>
         <br>
         <div>
-            <a href="create"><button>create</button></a>
+            <a href="create"><button style="font-size: 20px;">create</button></a>
         </div>
         <br>
     </div>

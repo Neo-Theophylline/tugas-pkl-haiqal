@@ -90,7 +90,7 @@
             <br>
             <input type="file" name="photo">
             <br>
-            @error('foto')
+            @error('photo')
             <small style="color: red;">{{$message}}</small>
             @enderror
         </div>

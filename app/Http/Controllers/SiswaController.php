@@ -19,7 +19,7 @@ class SiswaController extends Controller
 
     public function create()
     {
-        $clases = Clas::all(); // ambil semua data kelas
+        $clases = Clas::all(); 
         return view('siswa.create', compact('clases'));
     }
 

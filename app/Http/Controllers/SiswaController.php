@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\user;
+use App\Models\Clas;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rules\Unique;
 
 class SiswaController extends Controller
@@ -17,7 +19,8 @@ class SiswaController extends Controller
 
     public function create()
     {
-        return view('siswa.create');
+        $clases = Clas::all(); // ambil semua data kelas
+        return view('siswa.create', compact('clases'));
     }
 
 
@@ -32,12 +35,11 @@ class SiswaController extends Controller
             'alamat' => 'required',
             'email' => 'required|unique:users,email',
             'password' => 'required',
-            'no_handphone' => 'required',
+            'no_handphone' => 'required|unique:users,no_telepon',
         ]);
 
         $datauser = [
             'clas_id' => $request->kelas,
-            'photo' => 'photo.jpg',
             'name' => $request->name,
             'nisn' => $request->nisn,
             'alamat' => $request->alamat,
@@ -45,6 +47,8 @@ class SiswaController extends Controller
             'password' => bcrypt($request->password),
             'no_telepon' => $request->no_handphone,
         ];
+        
+            $datauser['photo'] = $request->file('photo')->store('images', 'public');
 
         user::create($datauser);
 

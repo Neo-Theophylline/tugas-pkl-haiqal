@@ -9,15 +9,15 @@
 
 <body>
     <h1>Halaman Create</h1>
-    <form action="/siswa/store" method="post">
+    <form action="/siswa/store" method="post" enctype="multipart/form-data">
         @csrf
         <div>
             <label for="">Kelas</label>
             <select name="kelas">
+                @foreach ($clases as $clas)
+                <option value="{{$clas->id}}">{{$clas->name}}</option>
                 <br>
-                <option value=1>XII 1</option>
-                <option value=2>XII 2</option>
-                <option value=3>XII 3</option>
+                @endforeach
             </select>
             <br>
             @error('kelas')
@@ -88,7 +88,11 @@
         <div>
             <label for="">Foto</label>
             <br>
-            <input type="file" name="photo" accept="image/*">
+            <input type="file" name="photo">
+            <br>
+            @error('foto')
+            <small style="color: red;">{{$message}}</small>
+            @enderror
         </div>
         <br>
         <button type="submit" href="/store">
